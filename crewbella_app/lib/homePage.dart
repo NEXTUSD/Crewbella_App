@@ -13,6 +13,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 1,
         title: Text(
           "Login",
           style: TextStyle(
@@ -22,39 +23,35 @@ class _HomePageState extends State<HomePage> {
         ),
         backgroundColor: Colors.white,
       ),
-      body: Container(
-        height: 900,
-        width: double.infinity,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Positioned(
-              left: 50,
-              top: 50,
-              child: Text(
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: double.infinity,
+          child: Column(
+            children: [
+              SizedBox(
+                height: 50,
+              ),
+              Text(
                 "Crewbella",
                 style: TextStyle(
                   fontSize: 50.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-            ),
-            Positioned(
-              top: 110,
-              left: 60,
-              child: Text(
+              Text(
                 "let's get you started!",
                 style: TextStyle(
                   fontSize: 20.0,
                 ),
               ),
-            ),
-            Positioned(
-              top: 250,
-              left: 90,
-              child: Container(
+              SizedBox(
+                height: 80,
+              ),
+              Container(
                 height: 30,
-                width: 350,
+                width: double.infinity,
                 child: TextField(
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
@@ -63,48 +60,47 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-            ),
-            Positioned(
-              top: 350,
-              child: InkWell(
+              SizedBox(
+                height: 60,
+              ),
+              InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage()),);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()),
+                  );
                 },
                 child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 500.0),
                   height: 70,
                   width: 400,
-                  color: Colors.red,
-                  child: Stack(
-                    alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.red,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Positioned(
-                        top: 10,
-                        child: Text(
-                          "CONTINUE",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
+                      Text(
+                        "CONTINUE",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.white,
                         ),
                       ),
-                      Positioned(
-                        top: 40,
-                        child: Text(
-                          "Account Creation Or Login",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
+                      Text(
+                        "Account Creation Or Login",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
                       ),
                     ],
                   ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

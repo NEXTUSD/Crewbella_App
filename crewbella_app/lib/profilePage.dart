@@ -30,6 +30,14 @@ class _ProfilePageState extends State<ProfilePage> {
               fontWeight: FontWeight.w600,
             ),
           ),
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(
+                Icons.arrow_back_ios_new_sharp,
+                color: Colors.black,
+              )),
         ),
         body: SingleChildScrollView(
           child: context.watch<Controller>().isloading
